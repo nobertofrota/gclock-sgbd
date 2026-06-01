@@ -28,6 +28,7 @@ import java.util.logging.SimpleFormatter;
 import DBMS.bufferManager.IBufferManager;
 import DBMS.bufferManager.policies.AbstractBufferPolicy;
 import DBMS.bufferManager.policies.FIFO;
+import DBMS.bufferManager.policies.GCLOCK;
 import DBMS.bufferManager.policies.LRU;
 import DBMS.bufferManager.policies.MRU;
 import DBMS.connectionManager.DBConnection;
@@ -307,6 +308,7 @@ public abstract class Kernel {
 		bufferPolicies.put(LRU.class.getSimpleName(), LRU.class);
 		bufferPolicies.put(MRU.class.getSimpleName(), MRU.class);
 		bufferPolicies.put(FIFO.class.getSimpleName(), FIFO.class);
+		bufferPolicies.put(GCLOCK.class.getSimpleName(), GCLOCK.class);
 		return bufferPolicies;
 	}
 	
