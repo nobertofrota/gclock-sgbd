@@ -16,6 +16,18 @@ An easy way is build and run as eclipse project
 
 3- Look for a main class in the [tests](/src/tests) package to run. For example [TestGraphicInterface.java](/src/tests/TestGraphicInterface.java)
 
+### Build and Execution (CLI / PowerShell)
+
+You can also compile and run directly from PowerShell:
+
+```powershell
+cd D:\buffer-sgbd\seal-db
+if (!(Test-Path out)) { New-Item -ItemType Directory out | Out-Null }
+Get-ChildItem -Recurse -Filter *.java src | ForEach-Object { $_.FullName } | Set-Content sources.txt
+javac -encoding windows-1252 -cp "libs/*;src" -d out "@sources.txt"
+java -cp "out;src;libs/*" tests.TestGraphicInterface
+```
+
 ## Exploring seal-db GUI
 
 Choose some settings, for example the buffer size (in pages), buffer policy, among others.
